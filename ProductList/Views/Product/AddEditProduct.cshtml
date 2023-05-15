@@ -1,0 +1,44 @@
+﻿@model ProductInfo
+@{
+    ViewData["Title"] = "AddEditProduct";
+}
+
+<h1>AddEditProduct</h1>
+<form asp-action="Create">
+<div class="container">
+    <input type="hidden" asp-for="SN" />
+    <div class="row mb-3">
+        <div class="col-md-3">Product Name</div>
+        <div class="col-md-9">
+                <input type="text" asp-for="Product" class="form-control" required />
+        </div>
+    </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3">Description</div>
+            <div class="col-md-9">
+                <input type="text" asp-for="Descrip" class="form-control" required />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+        <div class="col-md-3">Price</div>
+        <div class="col-md-9">
+            <input type="text" asp-for="Price" class="form-control" required />
+        </div>
+    </div>
+     
+
+        <div class="row mb-3">
+            <div class="col-md-3">Description</div>
+            <div class="col-md-9">
+                <input type="Submit" value="Save" class=" btn btn-primary" />
+                <a asp-action="Index" class=" btn btn-danger">Back To LIst </a>
+            </div>
+        </div>
+
+
+
+</div>
+</form>
+ 
