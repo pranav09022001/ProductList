@@ -1,0 +1,59 @@
+1)Query for Database Creation 
+
+CREATE DATABASE DbPranav;
+
+2)Query for Accessing database
+
+use DbPranav;
+
+3)Query for table creation into database
+
+CREATE TABLE product(
+No int,
+SN int not null identity(1,1) CONSTRAINT SN PRIMARY KEY,
+Product varchar(100) not null,
+Descrip varchar(200) not null,
+Price int not null,
+Created datetime not null
+)
+
+4)Query for stored procedures(Add-Edit Product) creation into database
+
+CREATE PROC productAddEdit1
+(
+@SN int,
+@Product varchar(100),
+@Descrip varchar(200),
+@Price int
+)
+AS
+IF @SN=0
+BEGIN
+	INSERT INTO product(Product,Descrip,Price,Created)
+	VALUES(@Product,@Descrip,@Price,GETDATE())
+
+	SELECT @@ROWCOUNT as TotalRowCount
+END
+ELSE
+BEGIN
+	UPDATE product SET
+	Product=@Product,
+	Descrip=@Descrip,
+	Price=@Price
+	WHERE SN=@SN
+
+	SELECT @@ROWCOUNT as TotalRowCount
+END
+
+
+5)Query for stored procedures(Delete Product) creation into database
+
+CREATE PROC productDelete1
+(
+@SN int
+)
+AS
+	DELETE FROM product WHERE SN=@SN
+
+	SELECT @@ROWCOUNT as TotalRowCount
+

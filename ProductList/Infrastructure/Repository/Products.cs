@@ -52,7 +52,7 @@ namespace ProductList.Infrastructure.Repository
             {
                 var dbPara=new DynamicParameters();
                 dbPara.Add("@SN", id);
-                model2.TotalRowCount = Task.FromResult(_dapper.ExecuteScaler<ProductInfo>("productDelete", dbPara, commandType: CommandType.StoredProcedure)).Result;
+                model2.TotalRowCount = Task.FromResult(_dapper.ExecuteScaler<ProductInfo>("productDelete1", dbPara, commandType: CommandType.StoredProcedure)).Result;
             }
             catch (Exception)
             {
