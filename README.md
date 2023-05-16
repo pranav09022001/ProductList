@@ -15,5 +15,5 @@ then install 3 packages 1]microsoft.entityframeworkcore(6.0.11)
 2]microsoft.entityframeworkcore.sqlserver(6.0.11)
 3]Dapper(2.0.123)
 
-[Step7]-Then run project.
+[Step7]-Then run the project.
  
